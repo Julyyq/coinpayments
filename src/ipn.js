@@ -36,7 +36,7 @@ module.exports = function () {
     if (hmac != req.get('HMAC')) {
       return next("COINPAYMENTS_INVALID_REQUEST");
     }
-    res.end();
+    ctx.res.end();
     if (req.body.status < 0) {
       _this.emit('ipn_fail', req.body);
       return next();
